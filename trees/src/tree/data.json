@@ -1,1 +1,30 @@
-{}
+{
+  "name": "root",
+  "items": [{
+    "name": "ant",
+    "items": []
+  },
+    {
+      "name": "bear",
+      "items": [
+        {
+          "name": "cat",
+          "items": []
+        },
+        {
+          "name": "dog",
+          "items": [
+            {
+              "name": "elephant",
+              "items": []
+            }
+            ]
+        }
+        ]
+    },
+    {
+      "name": "frog",
+      "items":  []
+    }
+  ]
+}
