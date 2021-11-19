@@ -1,26 +1,51 @@
+import { useState } from 'react';
 import useNames from '../hooks/useNames';
 
 export default function Animals() {
   const animals = useNames();
 
-  //Here I create a recursive function
-  const RecursiveComponent = ({ name, items }) => {
-    const hasChildren = item && items.length;
-    console.log(hasChildren);
+  const [newItem, setNewItem] = useState();
 
+  const RecursiveComponent = ({ name, items }) => {
+    const hasChildren = items && items.length;
+    console.log(hasChildren);
     return (
       <>
         <p>{name}</p>
         <div>
           <ul>
-            <il>
+            <li>
               {hasChildren > 0 &&
                 items.map((item) => (
-                  <RecursiveComponent name={item.name} {...items} />
+                  <RecursiveComponent name={item.name} {...item} />
                 ))}
-            </il>
+            </li>
           </ul>
+          {hasChildren > 0 ? (
+            <input
+              type="text"
+              onKeyDown={(e) => {
+                setNewItem([
+                  ...items,
+                  { name: newItem, item: items.length + 1 },
+                ]);
+              }}
+              onChange={(e) => setNewItem(e.target.value)}
+            ></input>
+          ) : null}
         </div>
+        <span
+          style={{ cursor: 'pointer' }}
+          onClick={(e) =>
+            items(
+              items.filter((value) => {
+                return value.name !== e.target.value;
+              })
+            )
+          }
+        >
+          ❌
+        </span>
       </>
     );
   };
