@@ -4,3 +4,15 @@
   padding: 10px;
   font-family: monospace;
 }
+
+ul{
+  list-style: none;
+}
+
+ul:nth-child(odd){
+  margin-top: 1rem;
+}
+
+li{
+  margin-bottom: 1rem;
+}
